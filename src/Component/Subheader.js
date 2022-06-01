@@ -11,7 +11,11 @@ export default function Subheader(){
             <li>Fashion</li>
             <li>Electronics</li>
             <li>Prime</li>
+            <li>Home & Kitchen</li>
+            <li>Amazon pay</li>
             <li>New releases</li>
+            <li>Computers</li>
+            <li>Books</li>
             </ul>
         </div>
     )

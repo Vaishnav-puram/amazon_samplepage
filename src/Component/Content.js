@@ -6,10 +6,10 @@ import Info from "./Info";
 import object from "./Object"
 export default function Matter (){
     let Arr = object.map((ele)=>{
-        console.log(ele)
+        // console.log(ele)
         return(
           <>
-         <Info info={ele}/>  
+         <Info ele={ele}/>  
           </>
         )
       })
@@ -18,7 +18,9 @@ export default function Matter (){
         <Header/>
         <Subheader/>
         <Cart/>
+        <section className="lists">
         {Arr}
+        </section>
         </div>
     )
 }

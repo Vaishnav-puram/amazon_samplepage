@@ -6,8 +6,8 @@ import Cart from "./Cart"
 export default function Home() {
     return (
         <>
-            <Header/>
-            <Subheader/>
+            {/* <Header/>
+            <Subheader/> */}
             <Cart/>
             <Content/>
         </>

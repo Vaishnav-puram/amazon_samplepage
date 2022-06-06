@@ -16,7 +16,7 @@ export default function Info(props) {
     if (props.ele.best === "true") {
         badge = "Best seller"
     }
-    console.log(props)
+    // console.log(props)
     function Link() {
         window.open(props.ele.url)
     }

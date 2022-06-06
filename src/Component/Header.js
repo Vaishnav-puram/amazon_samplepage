@@ -31,7 +31,7 @@ export default function Header() {
                 <input type="text" placeholder="search here..." className="search" />
                 <ul className="list">
                     {/* <li><i class="fa fa-search" style="font-size:24px"></i></li> */}
-                    <li>sign in</li>
+                    <li><Link to="/signin" className="link">sign in </Link></li>
                     <li>returns & orders</li>
                     <li><BsCart className="cart" />cart</li>
 

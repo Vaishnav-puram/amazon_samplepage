@@ -3,23 +3,15 @@ import React from "react";
 // import Subheader from "./Subheader";
 // import Cart from "./Cart";
 import Info from "./Info";
-import object from "./Object"
-export default function Content() {
-  let Arr = object.map((ele) => {
-    console.log(ele)
-    return (
-      <>
-        <Info ele={ele} />
-      </>
-    )
-  })
+// import object from "./Object"
+export default function Content({inputState}) {
   return (
     <div>
       {/* <Header />
       <Subheader />
       <Cart /> */}
       <section className="lists">
-        {Arr}
+      <Info ele={{inputState}} />
       </section>
     </div>
   )

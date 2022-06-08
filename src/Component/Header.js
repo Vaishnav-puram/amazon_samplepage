@@ -3,7 +3,11 @@ import Logo from "./images/Amazon.png";
 import { Link } from "react-router-dom";
 import { IoIosPin } from "react-icons/io";
 import { BsCart } from "react-icons/bs";
-export default function Header() {
+export default function Header({setInputState}) {
+    function manageInput(e){
+        let {value} =e.target
+        setInputState(value)
+    }
     return (
         <div>
             <nav className="nav_bar">
@@ -28,7 +32,7 @@ export default function Header() {
                     <option>Shoes & Handbags</option>
 
                 </select>
-                <input type="text" placeholder="search here..." className="search" />
+                <input type="text" placeholder="search here..." className="search" onChange={manageInput} />
                 <ul className="list">
                     {/* <li><i class="fa fa-search" style="font-size:24px"></i></li> */}
                     <li><Link to="/signin" className="link">sign in </Link></li>

@@ -295,5 +295,8 @@ body {
     margin-left: auto;
     margin-right: auto;
     padding-left: 10px;
-    
+}
+.cart{
+    width: 45px;
+    margin-left:auto;
 }

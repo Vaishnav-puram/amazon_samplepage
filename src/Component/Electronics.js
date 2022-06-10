@@ -2,17 +2,14 @@ import React from 'react'
 import data from './Object'
 import ElectronicsComp from "./MobileComp"
 export default function Electronics() {
- const Arr=data.filter(name=>name.type==="electronics").map((ele)=>{
-    return (
-      <>
-      <ElectronicsComp ele={ele}/>
-      </>
-    )
-  })
+  let mobileData=data.filter((obj)=>obj.type==="electronics");
   return (
     <div>
+      {/* <Header />
+      <Subheader />
+      <Cart /> */}
       <section className="lists">
-        {Arr}
+        <ElectronicsComp data={mobileData}/>
       </section>
     </div>
   )

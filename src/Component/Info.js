@@ -1,23 +1,24 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 /* eslint-disable jsx-a11y/alt-text */
-import React, { useState ,useEffect} from "react"
+import React from "react";
 import { IoMdCheckmark } from "react-icons/io";
 import { BiRupee } from "react-icons/bi";
 import { MdOutlineStarHalf } from "react-icons/md";
 import { MdOutlineStarPurple500 } from "react-icons/md";
 import data from "./Object"
-export default function Info(props) {
-    console.log(props.ele.inputState)
-    let filteredData = data.filter(ele => ele.type.includes(props.ele.inputState.toLowerCase()))
+export default function Info({inputState}) {
+    // console.log(props)
+    // console.log("hi")
+    let filteredData = data.filter(ele => ele.type.includes(inputState.inputState.toLowerCase()))
     console.log(filteredData)
-    let badge;
-    console.log(props.ele.best)
+    // let badge;
+    // console.log(ele.best)
     // if (props.ele.best === "true") {
     //     badge = "Best seller"
     //     console.log(badge)
     // }
     function Link() {
-        window.open(props.ele.url)
+        window.open(inputState.ele.url)
     }
     function Deal() {
         window.open("https://www.amazon.in/gp/goldbox/")
@@ -60,6 +61,8 @@ export default function Info(props) {
                                             {ele.prime === "prime" && <div className="tom">Get it by Tomorrow , {ele.date}</div>}
                                         </div>
                                         {ele.prime === "prime" && <div className="free">Free delivery by Amazon</div>}
+                                        <button className="toCart" onClick={()=>inputState.addToCart(ele)}>Cart</button>
+                
                                     </div>
                                 </div>
 
@@ -72,7 +75,7 @@ export default function Info(props) {
                         return (
                             <div className="Grid">
                                 <div className="main">
-                                    {badge && <div className="best">{badge}</div>}
+                                    {ele.best && <div className="best">Best seller</div>}
                                     <img src={ele.img} className="logos" />
                                     <div className="obj">
                                         <div className="d" onClick={Link}>{ele.name}</div>
@@ -92,6 +95,7 @@ export default function Info(props) {
                                             {ele.prime === "prime" && <div className="tom">Get it by Tomorrow , {ele.date}</div>}
                                         </div>
                                         {ele.prime === "prime" && <div className="free">Free delivery by Amazon</div>}
+                                        <button className="toCart" onClick={()=>inputState.addToCart(ele)}>Cart</button>
                                     </div>
                                 </div>
 

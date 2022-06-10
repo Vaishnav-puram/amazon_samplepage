@@ -11,7 +11,7 @@ export default function Content({inputState}) {
       <Subheader />
       <Cart /> */}
       <section className="lists">
-      <Info ele={{inputState}} />
+      <Info inputState={inputState} />
       </section>
     </div>
   )

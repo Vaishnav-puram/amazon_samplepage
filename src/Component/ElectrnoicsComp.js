@@ -6,47 +6,54 @@ import { BiRupee } from "react-icons/bi";
 import { MdOutlineStarHalf } from "react-icons/md";
 import { MdOutlineStarPurple500 } from "react-icons/md";
 import { useState } from "react";
-export default function ElectronicsComp(props) {
-    console.log(props)
+export default function ElectronicsComp({data}) {
+    // console.log(props)
     let badge;
-    if (props.ele.best === "true") {
+    if (data.best === "true") {
         badge = "Best seller"
     }
 
     const [isHovering, setIsHovering] = React.useState(false);
     const handleMouseOver = () => {
         setIsHovering(true);
-    };
+    }
     const handleMouseOut = () => {
         setIsHovering(false);
-    };
-  return (
-    <div className="Grid">
-    <div className="main">
-        {badge && <div className="best">{badge}</div>}
-        <img src={props.ele.img} className="logos" />
-        <div className="obj">
-            <div className="d">{props.ele.name}</div>
-            <div className="price"><BiRupee className="rupee" />{props.ele.price} </div>
-            {props.ele.deal === "Limited time deal" && <div className="deal">{props.ele.deal} </div>}
-            {props.ele.coupon > 1 && <div className="mainCoupon"><div className="coupon">Save <BiRupee />{props.ele.coupon}</div><div className="textCoupon">with coupon</div></div>}
-            {props.ele.rating > 4 && <div className="reviews"><div className="stars" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}><MdOutlineStarPurple500 /><MdOutlineStarPurple500 /><MdOutlineStarPurple500 /><MdOutlineStarHalf /></div><div className="rating"> {props.ele.reviews}</div></div>}
-            {props.ele.rating < 3 && <div className="reviews"><div className="stars" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}><MdOutlineStarPurple500 /><MdOutlineStarPurple500 /><MdOutlineStarHalf /></div><div className="rating"> {props.ele.reviews}</div></div>}
-            {props.ele.rating === 3 && <div className="reviews"><div className="stars" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}><MdOutlineStarPurple500 /><MdOutlineStarPurple500 /><MdOutlineStarPurple500 /></div><div className="rating"> {props.ele.reviews}</div></div>}
-            {isHovering && <div style={{fontWeight:"bolder"}}>
-                {props.ele.rating} out of 5
-            </div>}
-            <div className="save">{props.ele.save}</div>
-            <div className="deli"><b>{props.ele.deli}</b></div>
-            <div className="primeAvailable">
-                {props.ele.prime === "prime" && <div className="prime"><IoMdCheckmark className="check" />{props.ele.prime}</div>}
-                {props.ele.prime === "prime" && <div className="tom">Get it by Tomorrow , {props.ele.date}</div>}
-            </div>
-            {props.ele.prime === "prime" && <div className="free">Free delivery by Amazon</div>}
-        </div>
-    </div>
-
-
-</div>
-  )
+    }
+    return (
+        <>
+            {
+                data.map((ele) => {
+                    return (
+                        <div className="Grid">
+                            <div className="main">
+                                {badge && <div className="best">{badge}</div>}
+                                <img src={ele.img} className="logos" />
+                                <div className="obj">
+                                    <div className="d">{ele.name}</div>
+                                    <div className="price"><BiRupee className="rupee" />{ele.price} </div>
+                                    {ele.deal === "Limited time deal" && <div className="deal">{ele.deal} </div>}
+                                    {ele.coupon > 1 && <div className="mainCoupon"><div className="coupon">Save <BiRupee />{ele.coupon}</div><div className="textCoupon">with coupon</div></div>}
+                                    {ele.rating > 4 && <div className="reviews"><div className="stars" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}><MdOutlineStarPurple500 /><MdOutlineStarPurple500 /><MdOutlineStarPurple500 /><MdOutlineStarHalf /></div><div className="rating"> {ele.reviews}</div></div>}
+                                    {ele.rating < 3 && <div className="reviews"><div className="stars" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}><MdOutlineStarPurple500 /><MdOutlineStarPurple500 /><MdOutlineStarHalf /></div><div className="rating"> {ele.reviews}</div></div>}
+                                    {ele.rating === 3 && <div className="reviews"><div className="stars" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}><MdOutlineStarPurple500 /><MdOutlineStarPurple500 /><MdOutlineStarPurple500 /></div><div className="rating"> {ele.reviews}</div></div>}
+                                    {isHovering && <div style={{ fontWeight: "bolder" }}>
+                                        {ele.rating} out of 5
+                                    </div>}
+                                    <div className="save">{ele.save}</div>
+                                    <div className="deli"><b>{ele.deli}</b></div>
+                                    <div className="primeAvailable">
+                                        {ele.prime === "prime" && <div className="prime"><IoMdCheckmark className="check" />{ele.prime}</div>}
+                                        {ele.prime === "prime" && <div className="tom">Get it by Tomorrow , {ele.date}</div>}
+                                    </div>
+                                    {ele.prime === "prime" && <div className="free">Free delivery by Amazon</div>}
+                                    <button className="toCart">Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    )
+                })
+            }
+        </>
+    )
 }

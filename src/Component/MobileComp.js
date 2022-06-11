@@ -5,12 +5,11 @@ import { IoMdCheckmark } from "react-icons/io";
 import { BiRupee } from "react-icons/bi";
 import { MdOutlineStarHalf } from "react-icons/md";
 import { MdOutlineStarPurple500 } from "react-icons/md";
-export default function MobileComp({ data }) {
+import data from "./Object";
+export default function MobileComp({ cart }) {
+    // let mobileData=data.filter((obj)=>obj.type=="mobile");
     // console.log(props)
-    let badge;
-    if (data.best === "true") {
-        badge = "Best seller"
-    }
+
 
     const [isHovering, setIsHovering] = React.useState(false);
     const handleMouseOver = () => {
@@ -22,11 +21,11 @@ export default function MobileComp({ data }) {
     return (
         <>
             {
-                data.map((ele) => {
+                cart.mobileData.map((ele) => {
                     return (
                         <div className="Grid">
                             <div className="main">
-                                {badge && <div className="best">{badge}</div>}
+                                {ele.best && <div className="best">Best Seller</div>}
                                 <img src={ele.img} className="logos" />
                                 <div className="obj">
                                     <div className="d">{ele.name}</div>
@@ -46,7 +45,10 @@ export default function MobileComp({ data }) {
                                         {ele.prime === "prime" && <div className="tom">Get it by Tomorrow , {ele.date}</div>}
                                     </div>
                                     {ele.prime === "prime" && <div className="free">Free delivery by Amazon</div>}
-                                    <button className="toCart">Cart</button>
+                                    <div className="buttons">
+                                        <button className="remove" onClick={() => cart.cart.removeFromCart(ele)}>remove from Cart</button>
+                                        <button className="toCart" onClick={() => cart.cart.addToCart(ele)}>Add to Cart</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>

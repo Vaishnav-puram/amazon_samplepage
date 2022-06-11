@@ -42,7 +42,11 @@ export default function Cart1({cart}) {
                   </div>
                   {ele.prime === "prime" && <div className="free">Free delivery by Amazon</div>}
                   <div>{ele.quantity}</div>
+                  <div className="buttons">
+                  <button className="removeCart" onClick={()=>cart.removeFromCart(ele)}>-</button>
                   <button className="toCart" onClick={()=>cart.addToCart(ele)}>+</button>
+                  </div>
+                  
 
               </div>
           </div>

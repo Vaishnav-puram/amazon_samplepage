@@ -27,6 +27,9 @@ body {
 .search {
     margin-left: 20px;
     border-radius: 4px;
+    width: 500px;
+    height: 30px;
+    border: 5px;
 
 }
 
@@ -311,6 +314,15 @@ body {
 }
 .toCart{
     margin-top: auto;
-    width: 55px;
+    width: 120px;
     margin-left: auto;
+    display: flex;
+    justify-content: center;
+}
+.removeCart{
+    margin-top: auto;
+    width: 55px;
+}
+.buttons{
+    display: flex;
 }

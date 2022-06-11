@@ -1,15 +1,15 @@
 import React from 'react'
 import data from './Object'
-import ElectronicsComp from "./MobileComp"
-export default function Electronics() {
-  let mobileData=data.filter((obj)=>obj.type==="electronics");
+import ElectronicsComp from "./ElectrnoicsComp"
+export default function Electronics({cart}) {
+  let electronicsData=data.filter((obj)=>obj.type=="electronics");
   return (
     <div>
       {/* <Header />
       <Subheader />
       <Cart /> */}
       <section className="lists">
-        <ElectronicsComp data={mobileData}/>
+        <ElectronicsComp cart={{cart,electronicsData}}/>
       </section>
     </div>
   )

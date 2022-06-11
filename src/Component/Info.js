@@ -6,7 +6,7 @@ import { BiRupee } from "react-icons/bi";
 import { MdOutlineStarHalf } from "react-icons/md";
 import { MdOutlineStarPurple500 } from "react-icons/md";
 import data from "./Object"
-export default function Info({inputState}) {
+export default function Info({ inputState }) {
     // console.log(props)
     // console.log("hi")
     let filteredData = data.filter(ele => ele.type.includes(inputState.inputState.toLowerCase()))
@@ -18,7 +18,7 @@ export default function Info({inputState}) {
     //     console.log(badge)
     // }
     function Link() {
-        window.open(inputState.ele.url)
+        window.open(inputState.url)
     }
     function Deal() {
         window.open("https://www.amazon.in/gp/goldbox/")
@@ -31,17 +31,17 @@ export default function Info({inputState}) {
         setIsHovering(false);
     };
     console.log(data)
-    
+
     return (
         <>
             {
-                filteredData.length ==0 ?
-            
+                filteredData.length == 0 ?
+
                     data.map((ele) => {
                         return (
                             <div className="Grid">
                                 <div className="main">
-                                   {ele.best  && <div className="best">Best seller</div>}
+                                    {ele.best && <div className="best">Best seller</div>}
                                     <img src={ele.img} className="logos" />
                                     <div className="obj">
                                         <div className="d" onClick={Link}>{ele.name}</div>
@@ -61,8 +61,10 @@ export default function Info({inputState}) {
                                             {ele.prime === "prime" && <div className="tom">Get it by Tomorrow , {ele.date}</div>}
                                         </div>
                                         {ele.prime === "prime" && <div className="free">Free delivery by Amazon</div>}
-                                        <button className="toCart" onClick={()=>inputState.addToCart(ele)}>Cart</button>
-                
+                                        <div className="buttons">
+                                            <button className="remove" onClick={()=>inputState.removeFromCart(ele)}>remove from Cart</button>
+                                            <button className="toCart" onClick={() => inputState.addToCart(ele)}>Add to Cart</button>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -70,7 +72,7 @@ export default function Info({inputState}) {
                             </div>
 
                         )
-                    }): 
+                    }) :
                     filteredData.map((ele) => {
                         return (
                             <div className="Grid">
@@ -95,7 +97,7 @@ export default function Info({inputState}) {
                                             {ele.prime === "prime" && <div className="tom">Get it by Tomorrow , {ele.date}</div>}
                                         </div>
                                         {ele.prime === "prime" && <div className="free">Free delivery by Amazon</div>}
-                                        <button className="toCart" onClick={()=>inputState.addToCart(ele)}>Cart</button>
+                                        <button className="toCart" onClick={() => inputState.addToCart(ele)}>Cart</button>
                                     </div>
                                 </div>
 
@@ -104,7 +106,7 @@ export default function Info({inputState}) {
 
                         )
                     })
-           }
+            }
         </>
 
     )

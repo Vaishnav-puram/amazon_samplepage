@@ -33,7 +33,6 @@ export default function Subheader() {
                 <li>Custom Service</li>
                 <li>Deal of the day</li>
                 <li>Fashion</li>
-                {/* <Link to="/eletronics" className="link"><li>Electronics</li></Link> */}
                 <Link to="/electronics" className="link"><li>Electronics</li></Link>
                 <li onMouseOver={()=>handleMouseOver()} >Prime <MdArrowDropDown /></li>
                 <li>Home & Kitchen</li>

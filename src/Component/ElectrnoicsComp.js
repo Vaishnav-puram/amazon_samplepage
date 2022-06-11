@@ -1,18 +1,20 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React from 'react'
+import React, { useState } from 'react'
 import "../index.css"
 import { IoMdCheckmark } from "react-icons/io";
 import { BiRupee } from "react-icons/bi";
 import { MdOutlineStarHalf } from "react-icons/md";
 import { MdOutlineStarPurple500 } from "react-icons/md";
-import { useState } from "react";
-export default function ElectronicsComp({data}) {
+import data from "./Object"
+export default function ElectronicsComp({ cart }) {
+    // let electronicsData=data.filter((obj)=>obj.type=="electronics");
     // console.log(props)
-    let badge;
-    if (data.best === "true") {
-        badge = "Best seller"
+    function Link() {
+        window.open(data.url)
     }
-
+    function Deal() {
+        window.open("https://www.amazon.in/gp/goldbox/")
+    }
     const [isHovering, setIsHovering] = React.useState(false);
     const handleMouseOver = () => {
         setIsHovering(true);
@@ -23,16 +25,16 @@ export default function ElectronicsComp({data}) {
     return (
         <>
             {
-                data.map((ele) => {
+                cart.electronicsData.map((ele) => {
                     return (
                         <div className="Grid">
                             <div className="main">
-                                {badge && <div className="best">{badge}</div>}
+                                {ele.best && <div className="best">Best Seller</div>}
                                 <img src={ele.img} className="logos" />
                                 <div className="obj">
-                                    <div className="d">{ele.name}</div>
+                                    <div className="d" onClick={Link}>{ele.name}</div>
                                     <div className="price"><BiRupee className="rupee" />{ele.price} </div>
-                                    {ele.deal === "Limited time deal" && <div className="deal">{ele.deal} </div>}
+                                    {ele.deal === "Limited time deal" && <div className="deal" onClick={Deal}>{ele.deal} </div>}
                                     {ele.coupon > 1 && <div className="mainCoupon"><div className="coupon">Save <BiRupee />{ele.coupon}</div><div className="textCoupon">with coupon</div></div>}
                                     {ele.rating > 4 && <div className="reviews"><div className="stars" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}><MdOutlineStarPurple500 /><MdOutlineStarPurple500 /><MdOutlineStarPurple500 /><MdOutlineStarHalf /></div><div className="rating"> {ele.reviews}</div></div>}
                                     {ele.rating < 3 && <div className="reviews"><div className="stars" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}><MdOutlineStarPurple500 /><MdOutlineStarPurple500 /><MdOutlineStarHalf /></div><div className="rating"> {ele.reviews}</div></div>}
@@ -47,7 +49,10 @@ export default function ElectronicsComp({data}) {
                                         {ele.prime === "prime" && <div className="tom">Get it by Tomorrow , {ele.date}</div>}
                                     </div>
                                     {ele.prime === "prime" && <div className="free">Free delivery by Amazon</div>}
-                                    <button className="toCart">Cart</button>
+                                    <div className="buttons">
+                                        <button className="remove" onClick={() => cart.cart.removeFromCart(ele)}>remove from Cart</button>
+                                        <button className="toCart" onClick={() => cart.cart.addToCart(ele)}>Add to Cart</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>

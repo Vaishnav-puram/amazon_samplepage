@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 import { IoMdCheckmark } from "react-icons/io";
 import { BiRupee } from "react-icons/bi";
 import { MdOutlineStarHalf } from "react-icons/md";
@@ -16,7 +17,12 @@ export default function Cart1({cart}) {
     <>
     {
       cart.cart.length==0?
-      <div>cart is empty</div>
+      <div className="empty">
+        <div className='parent'>
+        <h2 className="basket">Your Amazon Basket is empty</h2>
+        <Link to="/signin" className="link"><button className="signinButton">Sign in to your account</button></Link>
+        </div>
+      </div>
       :
       cart.cart.map((ele)=>{
         return(

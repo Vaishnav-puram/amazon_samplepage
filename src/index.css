@@ -312,6 +312,32 @@ body {
     position:absolute;
     margin-top: -32px;
     margin-left:5px;
+    color: #E67A00;
+}
+.empty{
+    background-color:#EAEDED;
+    height: 300px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.parent{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    width: 90%;
+    height: 90%;
+
+}
+.signinButton{
+   background-color: #FFD814;
+   border: none;
+   border-radius: 6px;
+   width: 200px;
+   height: 30px;
 }
 .toCart{
     margin-top: auto;

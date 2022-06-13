@@ -3,6 +3,7 @@ import { IoMdCheckmark } from "react-icons/io";
 import { BiRupee } from "react-icons/bi";
 import { MdOutlineStarHalf } from "react-icons/md";
 import { MdOutlineStarPurple500 } from "react-icons/md";
+import { RiDeleteBinLine } from "react-icons/ri";
 export default function Cart1({cart}) {
   const [isHovering, setIsHovering] = React.useState(false);
     const handleMouseOver = () => {
@@ -41,17 +42,17 @@ export default function Cart1({cart}) {
                       {ele.prime === "prime" && <div className="tom">Get it by Tomorrow , {ele.date}</div>}
                   </div>
                   {ele.prime === "prime" && <div className="free">Free delivery by Amazon</div>}
-                  <div>{ele.quantity}</div>
+                  <div className="bucks">
+                  <div >quantity: {ele.quantity}</div>
+                  <div>total:<BiRupee/>{ele.quantity*ele.price}</div>
+                  </div>
                   <div className="buttons">
                   <button className="removeCart" onClick={()=>cart.removeFromCart(ele)}>-</button>
-                  <button className="toCart" onClick={()=>cart.addToCart(ele)}>+</button>
+                  <button className="tocart" onClick={()=>cart.addToCart(ele)}>+</button>
                   </div>
-                  
-
+                  <div title="delete from cart" className="bin" onClick={()=>cart.removeProduct(ele)}><RiDeleteBinLine/></div>
               </div>
           </div>
-
-
       </div>
         )
       })

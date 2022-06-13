@@ -86,7 +86,7 @@ body {
 .Grid {
     display: flex;
     flex-direction: column;
-    width: 800px;
+    width: 820px;
     margin-top: 10px;
     gap: 6px;
 }
@@ -104,6 +104,7 @@ body {
     display: flex;
     flex-direction: column;
     margin-left: 20px;
+    position: relative;
 }
 
 .logos {
@@ -319,10 +320,28 @@ body {
     display: flex;
     justify-content: center;
 }
+.tocart{
+    width: 55px;
+    margin-left: auto;
+}
 .removeCart{
     margin-top: auto;
     width: 55px;
 }
+.bucks{
+    display: flex;
+    justify-content: space-between;
+}
 .buttons{
     display: flex;
+    margin-top: 8px;
+}
+.bin{
+    position: absolute;
+    margin-left:545px;
+    margin-top:auto;
+    cursor: pointer;
+}
+.bin:hover{
+    color: red;
 }

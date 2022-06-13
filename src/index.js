@@ -28,9 +28,12 @@ function Result() {
     // for empty cart array this find method will not work.
 
     if (productinCart) {
+      if(productinCart.quantity<product.totalQuantity){
       // if product exists in cart we map the product and set porduct in cart quatity to increment and otherwise just add new item.
       setCart(cart.map((ele) => ele.id === product.id ? { ...productinCart, quantity: productinCart.quantity + 1 } : ele))
+      }
     }
+
     else {
       // spread opertor
       
@@ -39,27 +42,17 @@ function Result() {
     }
   }
   function removeFromCart(product) {
-    console.log("clicked on cart",product);
-   
-    // now using Find method to check whether the product exit in cart or not.
     const productinCart = cart.find((ele) => ele.id === product.id);
-    // for empty cart array this find method will not work.
-
     if (productinCart) {
-      // if  product exists in cart we map the product and set porduct in cart quatity to increment and otherwise just add new item.
-      if(productinCart.quantity==0 && productinCart.id===product.id){
-        cart=cart.filter((ele)=>ele.quantity!==0);
+      if(productinCart.quantity==1 && productinCart.id===product.id){
+        cart=cart.filter((ele)=>ele.quantity!==1);
         setCart({cart});
       }
-
       setCart(cart.map((ele) => ele.id === product.id ? { ...productinCart, quantity: productinCart.quantity - 1 } : ele))
     }
-    // else {
-    //   // spread opertor
-      
-    //   // [...cart]
-    //   setCart([...cart, { ...product, quantity: 0 }])
-    // }
+  }
+  function removeProduct(product){
+    setCart(cart.filter((ele)=>ele.id!==product.id))
   }
   return (
     <>
@@ -73,7 +66,7 @@ function Result() {
         <Route path="/mobile" element={ <Mobile cart={{cart,addToCart,removeFromCart}}  />}/>
         <Route path="/electronics" element={ <Electronics cart={{cart,addToCart,removeFromCart}}  />}/>
         <Route path="*" element={ <Error />}/> {/*to display error page we use path as "*" */} 
-        <Route path="/cart1" element={ <Cart1 cart={{cart,addToCart,removeFromCart}} />}/>
+        <Route path="/cart1" element={ <Cart1 cart={{cart,addToCart,removeFromCart,removeProduct}} />}/>
       </Routes>
     </BrowserRouter>
     

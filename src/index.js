@@ -12,6 +12,8 @@ import Mobile from "./Component/Mobile";
 import Electronics from "./Component/Electronics";
 import Error from "./Component/Error";
 import Cart1 from "./Component/Cart1";
+import SignUp from "./Component/SignUp";
+import CreateAccount from "./Component/CreateAccount";
 function Result() {
   let [inputState, setInputState] = useState('sample');
   // step :1 => for add to cart
@@ -63,6 +65,8 @@ function Result() {
         <Route path="/" element={ <Home inputState={{inputState,addToCart,removeFromCart}}/>}/>
         <Route path="/cart" element={ <Cart />}/>
         <Route path="/signin" element={ <SignIn />}/>
+        <Route path="/signup" element={ <SignUp />}/>
+        <Route path="/createaccount" element={ <CreateAccount />}/>
         <Route path="/mobile" element={ <Mobile cart={{cart,addToCart,removeFromCart}}  />}/>
         <Route path="/electronics" element={ <Electronics cart={{cart,addToCart,removeFromCart}}  />}/>
         <Route path="*" element={ <Error />}/> {/*to display error page we use path as "*" */} 

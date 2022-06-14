@@ -35,7 +35,7 @@ export default function Header({setInputState}) {
                 <input type="text" placeholder="search here..." className="search" onChange={manageInput} />
                 <ul className="list">
                     {/* <li><i class="fa fa-search" style="font-size:24px"></i></li> */}
-                    <li><Link to="/signin" className="link">sign in </Link></li>
+                    <li><Link to="/signup" className="link">sign in </Link></li>
                     <li>returns & orders</li>
                     <li className="CART">
                        <Link to="/cart1" className="link"><BsCart className="cart" /></Link>

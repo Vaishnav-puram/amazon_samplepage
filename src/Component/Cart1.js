@@ -20,7 +20,9 @@ export default function Cart1({cart}) {
       <div className="empty">
         <div className='parent'>
         <h2 className="basket">Your Amazon Basket is empty</h2>
-        <Link to="/signin" className="link"><button className="signinButton">Sign in to your account</button></Link>
+        <div className='sign'>
+        <Link to="/" className="link"><button className="signinButton">Back to home</button></Link>
+        </div>
         </div>
       </div>
       :

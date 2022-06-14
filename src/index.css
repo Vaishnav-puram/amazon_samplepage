@@ -301,6 +301,40 @@ body {
     margin-right: auto;
     padding-left: 10px;
 }
+.signup{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 350px;
+    height: 320px;
+    border: 1px solid;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10px;
+    gap: 4px;
+}
+.ca{
+    display: flex;
+    justify-content: flex-start;
+}
+.mobilenum{
+    display: flex;
+    gap: 4px;
+}
+.ahc{
+    margin-top: 10px;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    gap: 4px;
+}
+.continue{
+    border: none;
+    width: 330px;
+    height: 25px;
+    border-radius: 4px;
+}
 .cart{
     /* width: 45px; */
     /* margin-left:auto; */
@@ -338,6 +372,12 @@ body {
    border-radius: 6px;
    width: 200px;
    height: 30px;
+}
+.signUpButton{
+    border: 1px;
+    margin-left: 9px;
+    height: 30px;
+    border-radius: 6px;
 }
 .toCart{
     margin-top: auto;

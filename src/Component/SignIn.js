@@ -9,7 +9,7 @@ export default function SignIn() {
                 <h2>Sign-In</h2>
                 <span style={{ fontWeight: "bolder" ,marginTop:"3px" , fontSize:"small"}}>Email or mobile phone number</span>
                 <input type="text" style={{marginTop:"3px",width:"330px"}}/>
-                <button className='continue' style={{ backgroundColor: "#F4D27E", borderStyle:"groove",borderWidth:"1px" ,marginTop:"10px" ,width:"330px" }}>Continue</button>
+                <button className='continue' style={{ backgroundColor: "#F4D27E", borderStyle:"groove",borderWidth:"1px" ,marginTop:"10px" ,width:"330px",cursor:'pointer' }}>Continue</button>
             </div>
         </div>
     )

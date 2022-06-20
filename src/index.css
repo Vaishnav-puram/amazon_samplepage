@@ -248,7 +248,6 @@ body {
     color: white;
     text-decoration: none;
 }
-
 .hide {
     display: flex;
     /* align-items: center; */
@@ -307,7 +306,7 @@ body {
     flex-direction: column;
     align-items: flex-start;
     width: 350px;
-    height: 320px;
+    height: fit-content;
     border: 1px solid;
     margin-left: auto;
     margin-right: auto;

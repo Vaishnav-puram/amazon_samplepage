@@ -21,7 +21,7 @@ export default function Cart1({cart}) {
         <div className='parent'>
         <h2 className="basket">Your Amazon Basket is empty</h2>
         <div className='sign'>
-        <Link to="/" className="link"><button className="signinButton">Back to home</button></Link>
+        <Link to="/" className="link"><button className="signinButton" style={{cursor:"pointer"}}>Back to home</button></Link>
         </div>
         </div>
       </div>

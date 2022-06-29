@@ -3,9 +3,10 @@ import Logo from "./images/Amazon.png";
 import { Link } from "react-router-dom";
 import { IoIosPin } from "react-icons/io";
 import { BsCart } from "react-icons/bs";
-export default function Header({setInputState}) {
-    function manageInput(e){
-        let {value} =e.target
+import {MdOutlineAccountCircle} from "react-icons/md"
+export default function Header({ setInputState }) {
+    function manageInput(e) {
+        let { value } = e.target
         setInputState.setInputState(value)
     }
     return (
@@ -18,7 +19,7 @@ export default function Header({setInputState}) {
                 <IoIosPin />
                 <h6>Select your address</h6>
                 <select className="navoptions">
-                  <option>All Categories</option>
+                    <option>All Categories</option>
                     <option>Alexa Skills</option>
                     <option>Amazon Fresh</option>
                     <option>Beauty</option>
@@ -35,12 +36,17 @@ export default function Header({setInputState}) {
                 <input type="text" placeholder="search here..." className="search" onChange={manageInput} />
                 <ul className="list">
                     {/* <li><i class="fa fa-search" style="font-size:24px"></i></li> */}
-                    <li><Link to="/signup" className="link">sign in </Link></li>
+                    <li className="dropdown"><Link to="/signup" className="link" style={{ position:"relative",display:"inline-block",fontSize:"medium"}}><MdOutlineAccountCircle/></Link>
+                    <div class="dropdown-content">
+                        <p>SignIn</p>
+                    </div>
+                    </li>
+                    
                     <li>returns & orders</li>
                     <li className="CART">
-                       <Link to="/cart1" className="link"><BsCart className="cart" /></Link>
+                        <Link to="/cart1" className="link"><BsCart className="cart" /></Link>
                         cart
-                    <div className="num">{setInputState.cart.length}</div>
+                        <div className="num">{setInputState.cart.length}</div>
                     </li>
 
                 </ul>

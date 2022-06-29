@@ -56,6 +56,9 @@ export default function CreateAccount() {
       if(!values.number){
         error.number="phone number is required!!"
       }
+      else if(values.number.length<10){
+        error.number="number should be 10 digits!!"
+      }
       if(!values.password){
         error.password="password is required!!"
       }else if(values.password.length<6){
@@ -68,7 +71,7 @@ export default function CreateAccount() {
     <div >
       {Object.keys(formError).length===0&&isSubmit?
       (<div style={{display:"flex",justifyContent:"center",alignItems:"center"}}>SignIn Successful</div>):
-      (<div style={{display:"flex",justifyContent:"center",alignItems:"center"}}>please don't leave fields with *</div>)}
+      (<div style={{display:"flex",justifyContent:"center",alignItems:"center"}}>please don't leave fields with<span style={{color:"red"}}>*</span></div>)}
       <img src={Logo} className="sign" />
       <div className="signup">
         <form onSubmit={handleSubmit}>
@@ -103,7 +106,7 @@ export default function CreateAccount() {
             style={{ width: "333px" }} />
           <p style={{color:"red",fontSize:"small"}}>{formError.password}</p>  
           <span style={{ fontSize: "13px" ,marginTop:"2px"}}><BsInfo />password must haveat least 6 characters</span>
-          <button style={{ backgroundColor: "#F2C962" , marginBottom:"9px",marginTop:"9px"}} className="continue" type='submit' value="submit">Continue</button>
+          <button style={{ backgroundColor: "#F2C962" , marginBottom:"9px",marginTop:"9px"}} className="button" type='submit' value="submit"><span>Continue</span></button>
         </form>
       </div>
       <div className='ahc'>Already have an account?<Link to="/signin" className="link"><button className=' '>Sign in</button></Link></div>

@@ -2,6 +2,7 @@ import React, { useState ,useEffect} from 'react'
 import Logo from "./images/amazonLogo.PNG"
 import { Link } from "react-router-dom";
 import { BsInfo } from "react-icons/bs";
+import axios from 'axios';
 export default function CreateAccount() {
   const [regestration, setRegestration] = React.useState({
     name: "",
@@ -66,6 +67,18 @@ export default function CreateAccount() {
       }
       return error;
   }
+  useEffect(()=>{
+    async function res(){
+       let response=await axios.get('http://localhost:5000/')
+       console.log(response.data)
+    }
+    res()
+   },[])
+   let {name,number,email,password}=regestration
+   async function handleData(){
+    let response=await axios.post('http://localhost:5000/test/user',{name,number,email,password})
+    console.log(response.data)
+   }  
 
   return (
     <div >
@@ -106,7 +119,7 @@ export default function CreateAccount() {
             style={{ width: "333px" }} />
           <p style={{color:"red",fontSize:"small"}}>{formError.password}</p>  
           <span style={{ fontSize: "13px" ,marginTop:"2px"}}><BsInfo />password must haveat least 6 characters</span>
-          <button style={{ backgroundColor: "#F2C962" , marginBottom:"9px",marginTop:"9px"}} className="button" type='submit' value="submit"><span>Continue</span></button>
+          <button style={{ backgroundColor: "#F2C962" , marginBottom:"9px",marginTop:"9px"}} className="button" type='submit' value="submit" onClick={handleData}><span>Continue</span></button>
         </form>
       </div>
       <div className='ahc'>Already have an account?<Link to="/signin" className="link"><button className=' '>Sign in</button></Link></div>
